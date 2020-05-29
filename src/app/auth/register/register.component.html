@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()" #heroForm="ngForm"> 
+   <div>
+    <label for="email">Email</label>
+    <input type="text" ngModel name="email" #email="ngModel" required email>
+    <span *ngIf="email.invalid && email.touched">Email required</span>
+</div>
+<div>
+    <label for="password">Password</label>
+    <input type="password" ngModel name="password" #password="ngModel" required pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$^&*-+_;./>:}/|]).{8,64}$">
+</div>
+
+<span *ngIf="password.invalid && password.touched && password.dirty">Password must contain at least 1 lowercase,1uppercase and 1 special character</span>
+ <div>   
+     <label for ="confirmPassword">Confirm Password</label>
+<input type="password" ngModel name="confirmPassword">
+</div>
+<div>
+    <input [disabled]="heroForm.invalid"type="submit" value="submit">
+</div>
+</form>
+

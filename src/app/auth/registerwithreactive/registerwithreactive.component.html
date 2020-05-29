@@ -1,0 +1,27 @@
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>    
+  <label>
+      Email:
+      <input type="text" formControlName="email">
+      <span *ngIf="registerForm.controls['email'].invalid&&registerForm.controls['email'].touched">Please provide valid email </span>
+    </label>
+  </div>
+  <div>
+    <label>
+      Password:
+      <input type="password" formControlName="password">
+    </label>
+  </div>
+<div>
+    <label>
+        Confirm Password:
+        <input type="password" formControlName="confirmPassword">
+        <span *ngIf="registerForm.controls['confirmPassword'].invalid&&registerForm.controls['confirmPassword'].touched">Password and confirm password didnot matched </span>
+      </label>
+</div>
+      <button type="submit" [disabled]="registerForm.invalid">Submit</button>
+
+      <span>{{ message }}</span>
+  
+  </form>
